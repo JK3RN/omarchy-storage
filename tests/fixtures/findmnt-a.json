@@ -1,0 +1,6 @@
+{"filesystems": [
+  {"target": "/", "source": "/dev/mapper/root[/@]", "fstype": "btrfs", "size": 1000000000000, "used": 420000000000, "avail": 560000000000},
+  {"target": "/home", "source": "/dev/mapper/root[/@home]", "fstype": "btrfs", "size": 1000000000000, "used": 420000000000, "avail": 560000000000},
+  {"target": "/boot", "source": "/dev/vda1", "fstype": "vfat", "size": 2147483648, "used": 322122547, "avail": 1825361101},
+  {"target": "/mnt/Media Archive", "source": "/dev/vdb1", "fstype": "ext4", "size": 4000000000000, "used": 3720000000000, "avail": 80000000000}
+]}

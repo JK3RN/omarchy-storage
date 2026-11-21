@@ -1,0 +1,4 @@
+{"filesystems": [
+  {"target": "/", "source": "/dev/mapper/root[/@]", "fstype": "btrfs", "size": 1000000000000, "used": 610000000000, "avail": 370000000000},
+  {"target": "/boot", "source": "/dev/vda1", "fstype": "vfat", "size": 2147483648, "used": 322122547, "avail": 1825361101}
+]}

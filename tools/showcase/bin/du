@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Showcase double for du: prints the synthetic sizes of the target's immediate
+# children and the target total from data/du.tsv, in GNU du's output format.
+target=${!#}
+sleep 0.4
+awk -F '\t' -v t="$target" '
+  { size[$1] = $2 }
+  END {
+    for (p in size) {
+      parent = p; sub(/\/[^\/]+$/, "", parent)
+      if (parent == t) printf "%s\t%s\n", size[p], p
+    }
+    if (t in size) printf "%s\t%s\n", size[t], t
+  }' "${STORAGE_DEMO_DATA:?}/du.tsv"

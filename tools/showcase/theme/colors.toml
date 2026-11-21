@@ -1,0 +1,7 @@
+# "Phosphor & Sulfur" demo theme used only for the README captures.
+# The widget has no colours of its own: it follows whatever Omarchy theme is
+# active. These keys are the ones Omarchy's shell reads from colors.toml.
+background = "#050b08"
+foreground = "#00ff66"
+accent = "#00ff66"
+color1 = "#ffcc00"

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Test double for findmnt. Records its argv, prints the fixture selected by the
+# harness and exits with the code the harness chose. Never touches real mounts.
+dir=${STORAGE_TEST_DIR:?STORAGE_TEST_DIR is not set}
+printf '%s\n' "$@" > "$dir/findmnt.args"
+[[ -f $dir/findmnt.json ]] && cat -- "$dir/findmnt.json"
+exit "$(cat -- "$dir/findmnt.exit" 2>/dev/null || echo 0)"

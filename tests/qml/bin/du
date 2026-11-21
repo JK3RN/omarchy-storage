@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Test double for du. Records its argv and prints a deterministic listing for
+# the last argument (the target), with an optional delay to simulate slow scans.
+dir=${STORAGE_TEST_DIR:?STORAGE_TEST_DIR is not set}
+printf '%s\n' "$@" > "$dir/du.args"
+target=${!#}
+sleep "$(cat -- "$dir/du.delay" 2>/dev/null || echo 0)"
+printf '%s\t%s\n' 3000000000 "$target/Alpha" 500000000 "$target/Beta Gamma" 5000000000 "$target"

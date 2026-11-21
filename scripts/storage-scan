@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -o pipefail
+
+target=${1:-}
+if [[ -z "$target" || ! -d "$target" ]]; then
+  printf 'Storage path is not a readable directory: %s\n' "$target" >&2
+  exit 2
+fi
+
+# -x never crosses filesystem boundaries. The maximum depth of one is the
+# progressive contract: every click measures only the selected directory's
+# immediate children. Errors remain on stderr while readable results survive.
+exec du -x -B1 --max-depth=1 -- "$target"

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "dev.kern.storage",
+  "name": "Storage",
+  "version": "0.1.0",
+  "author": "K3RN",
+  "license": "MIT",
+  "description": "A lightweight storage meter with on-demand directory investigation.",
+  "kinds": ["bar-widget"],
+  "activation": "on-demand",
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Storage",
+    "description": "Filesystem usage at a glance, with an on-demand drilldown.",
+    "category": "System",
+    "aliases": ["storage", "disk", "filesystem", "space"],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "mount": "/",
+      "refreshSeconds": 60,
+      "investigatePath": "~"
+    },
+    "schema": [
+      {
+        "key": "mount",
+        "type": "string",
+        "label": "Primary mount",
+        "description": "Mount whose usage drives the bar glyph.",
+        "defaultValue": "/"
+      },
+      {
+        "key": "refreshSeconds",
+        "type": "number",
+        "label": "Refresh interval",
+        "description": "Seconds between cheap filesystem metadata refreshes (minimum 15).",
+        "defaultValue": 60,
+        "minimum": 15,
+        "maximum": 3600
+      },
+      {
+        "key": "investigatePath",
+        "type": "string",
+        "label": "Investigation root",
+        "description": "Directory used when an investigation starts. A leading ~ is supported.",
+        "defaultValue": "~"
+      }
+    ]
+  }
+}

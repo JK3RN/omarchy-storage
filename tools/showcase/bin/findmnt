@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Showcase double for findmnt: prints the synthetic mount table.
+exec cat -- "${STORAGE_DEMO_DATA:?}/findmnt.json"
